@@ -1,4 +1,8 @@
-from shared.shared_functions import *
+import sys
+
+sys.path.append('/home/roboticslab/Documents/CSSR4Africa_LLM/shared/')
+
+from shared_functions import *
 
 # Global variable to store loaded data items
 # data_items = []
