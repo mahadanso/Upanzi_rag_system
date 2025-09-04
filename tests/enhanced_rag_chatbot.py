@@ -1,8 +1,11 @@
 import sys
+from pathlib import Path
 
-sys.path.append('/home/roboticslab/Documents/CSSR4Africa_LLM/shared/')
+parent_dir = Path(__file__).parent.parent
 
-from shared_functions import *
+sys.path.append(str(parent_dir))
+
+from shared.shared_functions import *
 from typing import List, Dict, Any
 import openai
 

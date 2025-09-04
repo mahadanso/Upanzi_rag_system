@@ -205,3 +205,37 @@ def perform_filtered_similarity_search(collection, query: str, section_filter: s
     except Exception as e:
         print(f"Error in filtered search: {e}")
         return []
+
+def clear_collection(collection):
+    """Clear all items from the collection"""
+    try:
+        collection.delete()
+        print("Collection cleared successfully")
+    except Exception as e:
+        print(f"Error clearing collection: {e}")
+
+def delete_collection(collection_name: str):
+    """Delete the entire collection"""
+    try:
+        chroma_client.delete_collection(collection_name)
+        print(f"Collection '{collection_name}' deleted successfully")
+    except Exception as e:
+        print(f"Error deleting collection '{collection_name}': {e}")
+
+def list_collections() -> List[str]:
+    """List all existing collections"""
+    try:
+        collections = chroma_client.list_collections()
+        return [col.name for col in collections]
+    except Exception as e:
+        print(f"Error listing collections: {e}")
+        return []
+
+def get_collection_stats(collection) -> Dict[str, Any]:
+    """Get statistics about the collection"""
+    try:
+        stats = collection.count()
+        return stats
+    except Exception as e:
+        print(f"Error getting collection stats: {e}")
+        return {}

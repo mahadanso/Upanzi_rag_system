@@ -1,11 +1,13 @@
 import sys
+from pathlib import Path
 
-sys.path.append('/home/roboticslab/Documents/CSSR4Africa_LLM/shared/')
+parent_dir = Path(__file__).parent.parent
 
-from shared_functions import *
+sys.path.append(str(parent_dir))
+
+from shared.shared_functions import *
 
 # Global variable to store loaded data items
-# data_items = []
 search_history = []
 
 def main():
